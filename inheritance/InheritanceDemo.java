@@ -12,5 +12,10 @@ public class InheritanceDemo {
     // with inheritance
     System.out.println(advCalc.add(200, 1));
     System.out.println(advCalc.sub(201, 123));
+
+    // multiple inheritance
+    SuperCalculator superCalc = new SuperCalculator();
+    System.out.println(superCalc.power(2, 5));
+    System.out.println(superCalc.add(10, 20));
   }
 }
