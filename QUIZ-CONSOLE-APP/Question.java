@@ -42,4 +42,12 @@ public class Question {
   public void setAnswer(String answer) {
     this.answer = answer;
   }
+
+  public void displayQuestion() {
+    System.out.println("Question %s: %s".formatted(id + 1, question));
+    int optionsCount = options.length;
+    for (int i = 0; i < optionsCount; i++) {
+      System.out.println("Option %s: %s".formatted(i + 1, options[i]));
+    }
+  }
 }
