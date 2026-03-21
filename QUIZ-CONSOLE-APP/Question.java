@@ -44,7 +44,7 @@ public class Question {
   }
 
   public void displayQuestion() {
-    System.out.println("Question %s: %s".formatted(id + 1, question));
+    System.out.println("Question %s: %s".formatted(id, question));
     int optionsCount = options.length;
     for (int i = 0; i < optionsCount; i++) {
       System.out.println("Option %s: %s".formatted(i + 1, options[i]));

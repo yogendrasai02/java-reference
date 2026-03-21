@@ -2,10 +2,10 @@ import java.util.Scanner;
 
 public class QuestionService {
   private Question[] questions;
-  private String[] userSelections;
+  private int[] userSelections;
 
   public QuestionService() {
-    userSelections = new String[5];
+    userSelections = new int[5];
 
     // hardcode 5 questions
     questions = new Question[5];
@@ -36,12 +36,26 @@ public class QuestionService {
       Question q = questions[i];
       q.displayQuestion();
       System.out.print("Enter your choice: ");
-      userSelections[i] = sc.nextLine();
+      userSelections[i] = sc.nextInt();
     }
     System.out.println("Your selections:");
-    for (String selection : userSelections) {
+    for (int selection : userSelections) {
       System.out.println(selection);
     }
     sc.close();
+  }
+
+  public void calculateAndDisplayScore() {
+    int correct = 0, wrong = 0;
+    for (int i = 0; i < 5; i++) {
+      String answer = questions[i].getAnswer();
+      int selectedOptionNumber = userSelections[i];
+      if (answer.equals(questions[i].getOptions()[selectedOptionNumber - 1])) {
+        correct++;
+      } else {
+        wrong++;
+      }
+    }
+    System.out.println("Correct count: %s | Wrong count: %s".formatted(correct, wrong));
   }
 }
